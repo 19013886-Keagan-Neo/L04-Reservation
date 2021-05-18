@@ -43,31 +43,43 @@ public class MainActivity extends AppCompatActivity {
         tp.setCurrentHour(7);
         tp.setCurrentMinute(30);
 
+
+        // Enhancements
         btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name = etName.getText().toString();
-                String mobileNo = etMobileNo.getText().toString();
-                String pax = etPax.getText().toString();
+                String checkField = "";
+                if (etName.getText().toString().isEmpty()
+                        & etMobileNo.getText().toString().isEmpty()
+                        & etPax.getText().toString().isEmpty()){
+                    checkField = "Please enter all the required fields.";
 
-                String smokeArea = "";
-                if (cbEnabled.isChecked()){
-                    smokeArea = "smoking area";
+                    Toast.makeText(MainActivity.this, checkField, Toast.LENGTH_LONG).show();
+
                 } else {
-                    smokeArea = "non-smoking area";
+                    String name = etName.getText().toString();
+                    String mobileNo = etMobileNo.getText().toString();
+                    String pax = etPax.getText().toString();
+
+                    String smokeArea = "";
+                    if (cbEnabled.isChecked()){
+                        smokeArea = "smoking area";
+                    } else {
+                        smokeArea = "non-smoking area";
+                    }
+
+                    String date = dp.getYear() + "/" + (dp.getMonth() + 1) + "/" + dp.getDayOfMonth();
+                    String time = tp.getCurrentHour() + ":" + String.format("%02d", tp.getCurrentMinute());
+
+                    String msg = "Hi, " + name + ", you have book a "
+                            + pax + " person(s) " + smokeArea
+                            + " table on " + date + " at "
+                            + time + ". Your phone number is "
+                            + mobileNo + ".";
+
+                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG).show();
                 }
-
-                String date = dp.getYear() + "/" + (dp.getMonth() + 1) + "/" + dp.getDayOfMonth();
-                String time = tp.getCurrentHour() + ":" + String.format("%02d", tp.getCurrentMinute());
-
-                String msg = "Hi, " + name + ", you have book a "
-                        + pax + " person(s) " + smokeArea
-                        + " table on " + date + " at "
-                        + time + ". Your phone number is "
-                        + mobileNo + ".";
-
-                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG).show();
 
             }
         });
