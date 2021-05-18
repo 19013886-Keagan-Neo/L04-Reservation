@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">L04-Reservation</string>
+    <string name="sub_name">Can I Reserve A Table?</string>
+    <string name="display_name">Name:</string>
+    <string name="display_mobileNo">Mobile Number:</string>
+    <string name="display_grpSize">Size of the Group</string>
+    <string name="hint_name">Enter Name</string>
+    <string name="hint_mobileNo">Enter Mobile Number</string>
+    <string name="hint_pax">Enter Size of Group</string>
+    <string name="btn_reserve">Reserve</string>
+    <string name="btn_reset">Reset</string>
+    <string name="checkbox">Smoking Area</string>
+</resources>
